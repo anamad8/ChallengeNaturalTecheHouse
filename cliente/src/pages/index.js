@@ -49,35 +49,6 @@ export default function Home() {
       setModal(true); 
     };
 
-    const handlePosition = () => {
-      setDarkMode(!darkMode);
-      let body = document.body;
-      let homeContainer = document.querySelector(`.${style.home_container}`);
-      let btn = document.querySelector("#btn-darkMode");
-    
-      if (darkMode) {
-        body.classList.remove("dark-mode");
-        body.classList.add("light-mode");
-        homeContainer.classList.remove("dark-mode");
-        homeContainer.classList.add("light-mode");
-        btn.classList.remove(style.oscuro);
-        btn.classList.add(style.claro);
-      } else {
-        body.classList.remove("light-mode");
-        body.classList.add("dark-mode");
-        homeContainer.classList.remove("light-mode");
-        homeContainer.classList.add("dark-mode");
-        btn.classList.remove(style.claro);
-        btn.classList.add(style.oscuro);
-      }
-    
-      localStorage.setItem("modo", !darkMode);
-    };
-    
-
-
-
-
     return (
       <>
         <NavBar
