@@ -12,12 +12,13 @@ export const AllPokemonState = (props) => {
     const [typesPokemon, setTypesPokemon] = useState([]);
     const [isLoading, setIsLoading] = useState(false); // Estado para indicar si está cargando
 
-    console.log("data", isLoading)
+    const PORT = 5000
+    
     // Funcion donde me trae todos los Pokémon del backend
     const getAllPokemon = async () => {
-        setIsLoading(true); // Comienza la carga
+        setIsLoading(true); 
         try {
-            const response = await axios.get('http://localhost:8080/v0/allPokemon');
+            const response = await axios.get(`http://localhost:${PORT}/v0/allPokemon`);
             const totalPokemon = response.data.findPoke.length;
             setTotalPages(Math.ceil(totalPokemon / perPage));
             setPokemonData(response.data.findPoke);
@@ -32,7 +33,7 @@ export const AllPokemonState = (props) => {
     const getPokemonByName = async (name) => {
         setIsLoading(true); // Comienza la carga
         try {
-            const response = await axios.get(`http://localhost:8080/v0/pokemonName?name=${name}`);
+            const response = await axios.get(`http://localhost:${PORT}/v0/pokemonName?name=${name}`);
             setTypesPokemon(response.data.findPoke);
         } catch(err) {
             console.log(err);
@@ -46,7 +47,7 @@ export const AllPokemonState = (props) => {
     const getAllByType = async () => {
         setIsLoading(true); // Comienza la carga
         try {
-            const response = await axios.get(`http://localhost:8080/v0/allTypePokemon`);
+            const response = await axios.get(`http://localhost:${PORT}/v0/allTypePokemon`);
             setTypesPokemon(response.data.findPoke);
         } catch(err) {
             console.log(err);
@@ -60,7 +61,7 @@ export const AllPokemonState = (props) => {
     const getPokemonByTypes = async (type) => {
         setIsLoading(true); // Comienza la carga
         try {
-            const response = await axios.get(`http://localhost:8080/v0/pokemonType?type=${type}`);
+            const response = await axios.get(`http://localhost:${PORT}/v0/pokemonType?type=${type}`);
             const totalPokemon = response.data.findPoke.length;
             setTotalPages(Math.ceil(totalPokemon / perPage));
             setPokemonData(response.data.findPoke);

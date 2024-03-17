@@ -6,7 +6,7 @@ import Pagination from "../Components/Pagination/Pagination.jsx";
 import style from '../styles/Home.module.css'
 import NavBar from "../Components/NavBar/NavBar.jsx";
 import { Modal } from "../Components/Modal/Modal.jsx";
-import pokeball from '../img/pokeball.png'
+
 
 export default function Home() {
   const { pokemonData, currentPage, totalPages, nextPage, prevPage, goToPage, isLoading  } = useContext(allPokemonContext);
